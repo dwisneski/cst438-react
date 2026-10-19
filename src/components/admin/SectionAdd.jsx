@@ -38,11 +38,11 @@ const SectionAdd = ({ onClose }) => {
         body: JSON.stringify(section),
       });
       if (response.ok) {
-        const rc = await response.json();
-        setMessage("section added secno=" + rc.secNo);
+        const section = await response.json();
+        setMessage("section added secno=" + section.secNo);
       } else {
-        const rc = await response.json();
-        setMessage(rc.message);
+        const error = await response.json();
+        setMessage(error);
       }
     }
     catch (err) {
